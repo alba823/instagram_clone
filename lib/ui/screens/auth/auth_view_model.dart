@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:instagram_clone/data/repository/auth/auth_repository.dart';
-import 'package:instagram_clone/screens/auth/auth_model.dart';
+import 'package:instagram_clone/ui/screens/auth/auth_model.dart';
 
 class AuthViewModel extends ChangeNotifier {
   final AuthRepository _authRepository;
@@ -26,6 +26,7 @@ class AuthViewModel extends ChangeNotifier {
       (isAuthenticated) {
         if (!isAuthenticated) {
           authModel = authModel.copyWith(authState: AuthState.login);
+          notifyListeners();
         }
       },
     );
